@@ -20,7 +20,7 @@ class Coordinate
 
     public function getNeighborhood():string
     {
-        $point = new BaseCoordinate($this->lat, $this->long);
+        $point = new BaseCoordinate($this->long, $this->lat);
         foreach ($this->neighborhoods as $name => $neighborhood) {
             if (!is_array($neighborhood)) {
                 if ($neighborhood->contains($point)) {
