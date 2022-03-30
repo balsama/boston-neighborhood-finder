@@ -30,4 +30,23 @@ class Coordinate
         }
         return 'neighborhood unknown';
     }
+
+    public static function isValidBostonLatitude(float $latitude): bool
+    {
+        return self::isNumericInBounds($latitude, 42.22, 42.41);
+    }
+
+    public static function isValidBostonLongitude(float $longitude): bool
+    {
+        return self::isNumericInBounds($longitude, -71.2, -70.8);
+    }
+
+    /**
+     * Checks if the given value is (1) numeric, and (2) between lower
+     * and upper bounds (including the bounds values).
+     */
+    private static function isNumericInBounds(float $value, float $lower, float $upper): bool
+    {
+        return !($value < $lower || $value > $upper);
+    }
 }
