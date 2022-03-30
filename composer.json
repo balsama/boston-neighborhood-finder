@@ -15,7 +15,7 @@
     "autoload": {
         "psr-4": {
             "Balsama\\BostonNeighborhoodFinder\\": "src/",
-            "Balsama\\BostonNeighborhoodFinder\\Tests": "tests/"
+            "Balsama\\BostonNeighborhoodFinder\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev",
