@@ -23,5 +23,8 @@
         "platform": {
             "php": "8.0"
         }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit tests"
     }
 }
