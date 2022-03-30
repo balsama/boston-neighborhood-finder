@@ -15,8 +15,15 @@ class NeighborhoodsTest extends \PHPUnit\Framework\TestCase
     public function testGetNeighborhoods()
     {
         $neighborhoods = $this->neighborhoods->getNeighborhoods();
-        $this->assertIsArray($neighborhoods['Roslindale']);
         $this->assertCount(26, $neighborhoods);
-        $this->assertInstanceOf('\Location\Polygon', $neighborhoods['Leather District']);
+        $this->assertIsArray($neighborhoods['Roslindale']);
+        $this->assertIsArray($neighborhoods['Jamaica Plain']);
+
+        foreach ($neighborhoods['East Boston'] as $polygon) {
+            $this->assertInstanceOf('\Location\Polygon', $polygon);
+        }
+        foreach ($neighborhoods['Dorchester'] as $polygon) {
+            $this->assertInstanceOf('\Location\Polygon', $polygon);
+        }
     }
 }

@@ -22,16 +22,9 @@ class Coordinate
     {
         $point = new BaseCoordinate($this->long, $this->lat);
         foreach ($this->neighborhoods as $name => $neighborhood) {
-            if (!is_array($neighborhood)) {
-                if ($neighborhood->contains($point)) {
+            foreach ($neighborhood as $neighborhoodPolygon) {
+                if ($neighborhoodPolygon->contains($point)) {
                     return $name;
-                }
-            } else {
-                // Some neighborhoods are arrays of polygons.
-                foreach ($neighborhood as $neighborhoodPolygon) {
-                    if ($neighborhoodPolygon->contains($point)) {
-                        return $name;
-                    }
                 }
             }
         }
