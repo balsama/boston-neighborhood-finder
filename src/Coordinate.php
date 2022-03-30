@@ -18,7 +18,7 @@ class Coordinate
         $this->long = $long;
     }
 
-    public function getNeighborhood():string
+    public function getNeighborhood(): string
     {
         $point = new BaseCoordinate($this->long, $this->lat);
         foreach ($this->neighborhoods as $name => $neighborhood) {
@@ -26,8 +26,7 @@ class Coordinate
                 if ($neighborhood->contains($point)) {
                     return $name;
                 }
-            }
-            else {
+            } else {
                 // Some neighborhoods are arrays of polygons.
                 foreach ($neighborhood as $neighborhoodPolygon) {
                     if ($neighborhoodPolygon->contains($point)) {
@@ -38,6 +37,4 @@ class Coordinate
         }
         return 'neighborhood unknown';
     }
-
-
 }
