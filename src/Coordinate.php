@@ -18,7 +18,7 @@ class Coordinate
         $this->long = $long;
     }
 
-    public function getNeighborhood():string
+    public function getNeighborhood(): string
     {
         $point = new BaseCoordinate($this->long, $this->lat);
         foreach ($this->neighborhoods as $name => $neighborhood) {

@@ -1,9 +1,9 @@
 <?php
 
+namespace Balsama\BostonNeighborhoodFinder\Tests;
+
 class NeighborhoodsTest extends \PHPUnit\Framework\TestCase
-
 {
-
     private \Balsama\BostonNeighborhoodFinder\Neighborhoods $neighborhoods;
 
     protected function setUp(): void
@@ -25,7 +25,5 @@ class NeighborhoodsTest extends \PHPUnit\Framework\TestCase
         foreach ($neighborhoods['Dorchester'] as $polygon) {
             $this->assertInstanceOf('\Location\Polygon', $polygon);
         }
-
     }
-
 }

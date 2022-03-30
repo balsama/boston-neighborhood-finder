@@ -7,7 +7,6 @@ use Location\Coordinate;
 
 class Neighborhoods
 {
-
     private array $neighborhoods;
 
     public function __construct()
@@ -31,12 +30,10 @@ class Neighborhoods
             $neighborhoods[$rawNeighborhoodFeatures->properties->Name] = $neighborhoodPolygon;
         }
         $this->neighborhoods = $neighborhoods;
-
     }
 
     public function getNeighborhoods()
     {
         return $this->neighborhoods;
     }
-
 }
