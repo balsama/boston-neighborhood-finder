@@ -1,8 +1,9 @@
 <?php
 
+namespace Balsama\BostonNeighborhoodFinder\Tests;
+
 class CoordinateTest extends \PHPUnit\Framework\TestCase
 {
-
     public function testGetNeighborhood()
     {
         $southend = new \Balsama\BostonNeighborhoodFinder\Coordinate('42.3454', '-71.0745');
@@ -14,5 +15,4 @@ class CoordinateTest extends \PHPUnit\Framework\TestCase
         $dorchester = new \Balsama\BostonNeighborhoodFinder\Coordinate('42.319', '-71.0657');
         $this->assertEquals('Dorchester', $dorchester->getNeighborhood());
     }
-
 }
