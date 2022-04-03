@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boston neighborhood finder</title>
+    <meta name="description" content="Determines what Boston neighborhood a lat/long pair is in.">
+</head>
+<body>
+    <h1>Boston neighborhood finder</h1>
+    <p>Determines what Boston neighborhood a lat/long pair is in.</p>
+
+    <p>This uses the <a href="https://data.boston.gov/dataset/boston-neighborhoods1">GeoJSON Boston Neighborhood dataset</a> provided by the city. Don't debate the neighborhood boundaries with me.</p>
+    <form action="index.php" method="post">
+        <label for="lat">Latitude:</label><br>
+        <input type="number" min="42.22000000" max="42.41000000" id="lat" step="0.00000001" name="lat"><br>
+        <label for="long">Longitude:</label><br>
+        <input type="number" min="-71.2000000" max="-70.80000000" id="long" step="0.00000001" name="long"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p><a href="https://github.com/balsama/boston-neighborhood-finder">Source code on GitHub</a>.</p>
+</body>
+</html>

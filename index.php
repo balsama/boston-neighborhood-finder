@@ -24,12 +24,23 @@ if (array_key_exists('errors', $response)) {
     exit;
 }
 
-if (!Coordinate::isValidBostonLatitude($_POST['lat'])) {
+if (!is_float((float) $_POST['lat'])) {
+    $response['errors'][] = 'Latitude must be a float between 42.22 and 42.41.';
+}
+if (!is_float((float) $_POST['long'])) {
+    $response['errors'][] = 'Longitude must be a float between -71.20 and -70.8.';
+}
+if (array_key_exists('errors', $response)) {
+    echo json_encode($response);
+    exit;
+}
+
+if (!Coordinate::isValidBostonLatitude((float) $_POST['lat'])) {
     http_response_code(400);
     $response['errors'][] = 'Latitude must be float between 42.22 and 42.41.';
     $response['additional info'][] = 'The latitude provided appears to be outside of the bounding box for the City of Boston.';
 }
-if (!Coordinate::isValidBostonLongitude($_POST['long'])) {
+if (!Coordinate::isValidBostonLongitude((float) $_POST['long'])) {
     http_response_code(400);
     $response['errors'][] = "Longitude must be float between -71.20 and -70.8.";
     $response['additional info'][] = 'The longitude provided appears to be outside of the bounding box for the City of Boston.';
