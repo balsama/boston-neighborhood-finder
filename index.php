@@ -41,7 +41,7 @@ if (!is_float((float) $_POST['long'])) {
 if (array_key_exists('errors', $response)) {
     echo json_encode($response);
     $context['errors'] = $response['errors'];
-    $logger->logRequest('Lot or Long not a float.', $context);
+    $logger->logRequest('Lat or Long not a float.', $context);
     exit;
 }
 
@@ -50,7 +50,6 @@ if (!Coordinate::isValidBostonLatitude((float) $_POST['lat'])) {
     $context['coordinates_sent']['lat'] = $_POST['lat'];
     $response['errors'][] = 'Latitude must be float between 42.22 and 42.41.';
     $response['additional info'][] = 'The latitude provided appears to be outside of the bounding box for the City of Boston.';
-    $logger->logRequest('Lot and/or Long out of bounds.', $context);
 }
 if (!Coordinate::isValidBostonLongitude((float) $_POST['long'])) {
     http_response_code(400);
@@ -78,3 +77,5 @@ if ($neighborhood === 'neighborhood unknown') {
 }
 
 echo json_encode($response);
+$context['response'] = $response;
+$logger->logRequest('Neighborhood found.', $context);
