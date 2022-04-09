@@ -15,7 +15,7 @@ class NeighborhoodRequestLogger
     {
         $this->log = new Logger('channel_name');
         $formatter = new JsonFormatter();
-        $this->stream = new StreamHandler(__DIR__.'/../application_logs/application-json.log', Logger::DEBUG);
+        $this->stream = new StreamHandler(__DIR__ . '/../application_logs/application-json.log', Logger::DEBUG);
         $this->stream->setFormatter($formatter);
 
         $this->log->pushHandler($this->stream);
