@@ -7,7 +7,7 @@ use Balsama\BostonNeighborhoodFinder\Coordinate;
 $response = [];
 if (!$_POST) {
     http_response_code(400);
-    echo '<p>POST a <code>lat</code> and <code>long</code> value to look up tickets.</p>';
+    echo '<p>POST a <code>lat</code> and <code>long</code> value to look up tickets.</p><p>Or use <a href="/lookup.php">the form to submit a lat long pair</a>.</p>';
     exit;
 }
 
